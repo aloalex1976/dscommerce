@@ -2,6 +2,7 @@ package com.treinamento.dscommerce.entities;
 
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -50,6 +51,25 @@ public class Order {
 		this.status = status;
 		this.client = client;
 	}
+	
+	
+
+	public Order(Long id, Instant moment, OrderStatus status, User client, Payment payment) {
+		super();
+		this.id = id;
+		this.moment = moment;
+		this.status = status;
+		this.client = client;
+		this.payment = payment;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
 
 	public Long getId() {
 		return id;
@@ -84,5 +104,13 @@ public class Order {
 	}
 	
 	
+	
+	public Set<OrderItem> getItems() {
+		return items;
+	}
+
+	public List<Product> getProducts() {
+		return items.stream().map(x -> x.getProduct()).toList();
+		}
 	
 }
