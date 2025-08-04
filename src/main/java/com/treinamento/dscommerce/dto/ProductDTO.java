@@ -11,11 +11,11 @@ public class ProductDTO {
 	private String imgUrl;
 	
 	
+	
 	public ProductDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 
 	public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
 		super();
